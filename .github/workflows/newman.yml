@@ -16,4 +16,4 @@ jobs:
     - uses: matt-ball/newman-action@master
       with:
         collection: "./collections/Test Newman.postman_collection.json"
-        environment: "./envs/Nauka API.postman_collection.json"
+        environment: "./envs/Nauka API.postman_environment.json"
