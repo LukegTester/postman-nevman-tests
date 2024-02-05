@@ -1,0 +1,19 @@
+name: Run tests with newman
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: matt-ball/newman-action@master
+      with:
+        collection: "./collections/Test Newman.postman_collection.json"
+        environment: "./envs/Nauka API.postman_collection.json"
