@@ -23,4 +23,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install newman
-    - run: npx newman run "./collections/Test Newman.postman_collection.json" -e "./envs/Nauka API.postman_environment.json"
+    - run: npm install newman-reporter-htmlextra
+    - run: npx newman run "./collections/Test Newman.postman_collection.json" -e "./envs/Nauka API.postman_environment.json" -r htmlextra
+    - name: Archive tests results
+      if: success() || failure()
+      uses: action/upload-artifact@v3
+      with:
+        name: test-report
+        path: newman
