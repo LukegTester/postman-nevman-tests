@@ -1,0 +1,17 @@
+{
+  "name": "postman-newman-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "nm": "npx newman run \"./collections/Test Newman.postman_collection.json\" -e \"./envs/Nauka API.postman_environment.json\" ",
+    "test": "npm run nm -- -r htmlextra",
+    "test:progress": "npm run test -- --reporter-htmlextra-displayProgressBar"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "newman": "^6.0.0",
+    "newman-reporter-htmlextra": "^1.22.11"
+  }
+}
